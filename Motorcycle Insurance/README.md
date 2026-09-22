@@ -21,3 +21,21 @@
 - That made me go and ask the people who actually work there myself, and that's how I found out that some materials get rejected at the final step because of a "final test electrical fail" — which means that from process 1 to 11, it's something that simply cannot be seen by eye at all. This kind of insight has no way of being known except by going and finding it out yourself, and that's my example of why I decided to try this, even though AI can help us code everything (which I do use AI for, genuinely).
 - But the main thing I want to practice is finding the insight myself, by reading through the code that AI gives me — I just let it help me with that part.
 - And I want to practice storytelling — how well do I actually understand the data, and how do I translate what I have into business decision making, so the company understands what the problem is or what can be improved. That's the thing I really want to practice.
+
+## ข้อเสนอแนะเชิงธุรกิจของผมเอง
+
+- หลังจากที่เรารู้ insight แล้วว่า กลุ่มคนอายุต่ำกว่า 25 ปี อยู่ในโซน 2 ขับรถ class 6 ค่อนข้างจะมีอุบัติเหตุบ่อยและเคลมบ่อย ผมเลยอยากลองทำ business recommendation ของตัวเองจากความเข้าใจที่มี
+- **แนวทางที่ 1:** เพิ่มค่าเบี้ยประกันที่ลูกค้ากลุ่มนี้ต้องจ่าย เพื่อที่จะได้อยู่ในโปรแกรมความคุ้มครอง (การเคลม) ของกรมธรรม์นี้ต่อไปได้
+- **แนวทางที่ 2:** เก็บค่าเบี้ยประกันเท่าเดิม แต่ลดวงเงินความคุ้มครองลง (เคลมได้น้อยลง ถูกลง) ถ้าลูกค้ากลุ่มนี้ไม่ยอมรับเงื่อนไขนี้ ก็ให้เปลี่ยนไปใช้โปรแกรมประกันแบบอื่นแทน
+- ผมได้ลองเอาไอเดียแนวทางที่ 2 ไปถามความเห็นกับคนที่ใช้ประกันมอเตอร์ไซค์จริง ๆ ได้ insight กลับมาว่า:
+  - จริง ๆ แล้วคนส่วนใหญ่ไม่ได้ซื้อประกันเพราะคาดหวังว่าจะเกิดอุบัติเหตุอยู่แล้ว ดังนั้นถ้าจ่ายเบี้ยประกันเท่าเดิม แต่ได้ค่าเคลมน้อยลง ก็ไม่ได้ติดปัญหาอะไรมากสำหรับพวกเขา — นี่คือหนึ่ง insight ที่ได้มา
+  - แต่ลูกค้าก็ยังมีแนวโน้มที่จะไปดูบริษัทประกันเจ้าอื่นว่ามีเงื่อนไขที่ดีกว่าของเราหรือเปล่า ซึ่งอาจเสี่ยงต่อการเสียลูกค้าให้คู่แข่งได้
+
+## My own business recommendation (English)
+
+- After finding the insight that riders under 25 years old, in zone 2, riding class 6 vehicles tend to have accidents and claim fairly often, I wanted to try writing my own business recommendation based on what I understand.
+- **Option 1:** Increase the premium these customers have to pay, so they can stay in this policy's coverage/claim program.
+- **Option 2:** Keep the premium the same, but reduce the coverage amount (lower claim payout). If this group of customers doesn't accept these terms, let them switch to a different insurance program instead.
+- I actually took Option 2 and asked for feedback from a real motorcycle insurance user, and got this insight back:
+  - Most people don't actually buy insurance expecting to get into an accident, so if the premium stays the same but the claim payout is reduced, it's not really a big problem for them — that's one insight.
+  - But customers would still likely check other insurance companies to see if their terms are better than ours, which could risk losing the customer to a competitor.
