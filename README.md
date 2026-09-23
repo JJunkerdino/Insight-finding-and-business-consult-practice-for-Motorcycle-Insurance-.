@@ -1,5 +1,26 @@
 # Motorcycle Insurance Insight finding and business decision making recommendation practice
 
+### 0. เกี่ยวกับชุดข้อมูลนี้ / About the dataset
+
+**ไทย:** ข้อมูลนี้มาจากบริษัทประกันสัญชาติสวีเดนชื่อ Wasa เป็นประกันมอเตอร์ไซค์แบบ partial casco (คุ้มครองไม่เต็มรูปแบบ) เก็บข้อมูลกรมธรรม์และการเคลมจริงช่วงปี 1994-1998 รวม **64,548 กรมธรรม์** (เหตุผลที่ข้อมูลเก่าเพราะข้อมูลจริงที่ใหม่กว่านี้เป็นความลับทางธุรกิจ เปิดเผยไม่ได้) มาจากหนังสือ *Non-life insurance pricing with generalized linear models* (Ohlsson & Johansson, 2010)
+
+**English:** This data comes from the former Swedish insurer **Wasa**, covering **partial casco motorcycle insurance** policies and claims from **1994-1998** — **64,548 policies** in total (older data is used because more recent real business data is confidential). Source: *Non-life insurance pricing with generalized linear models* (Ohlsson & Johansson, 2010).
+
+**ตัวอย่างข้อมูลดิบ 10 แถว (ก่อนเปลี่ยนชื่อคอลัมน์) / Raw sample, 10 rows (before renaming):**
+
+| rownames | agarald | kon | zon | mcklass | fordald | bonuskl | duration | antskad | skadkost |
+|---|---|---|---|---|---|---|---|---|---|
+| 1 | 0 | M | 1 | 4 | 12 | 1 | 0.175342 | 0 | 0 |
+| 2 | 4 | M | 3 | 6 | 9 | 1 | 0.000000 | 0 | 0 |
+| 3 | 5 | K | 3 | 3 | 18 | 1 | 0.454795 | 0 | 0 |
+| 4 | 5 | K | 4 | 1 | 25 | 1 | 0.172603 | 0 | 0 |
+| 5 | 6 | K | 2 | 1 | 26 | 1 | 0.180822 | 0 | 0 |
+| 6 | 9 | K | 3 | 3 | 8 | 1 | 0.542466 | 0 | 0 |
+| 7 | 9 | K | 4 | 3 | 6 | 1 | 0.000000 | 0 | 0 |
+| 8 | 9 | M | 4 | 4 | 20 | 1 | 0.504110 | 0 | 0 |
+| 9 | 10 | M | 2 | 3 | 16 | 1 | 0.150685 | 0 | 0 |
+| 10 | 10 | M | 4 | 2 | 17 | 1 | 0.523288 | 0 | 0 |
+
 ## Business Recommendation
 
 ### ข้อเสนอแนะเชิงธุรกิจของผมเอง (จากการดูเดต้า และ การถามจากคนใช้ อธิบายด้วยคำพูดตัวเอง)
