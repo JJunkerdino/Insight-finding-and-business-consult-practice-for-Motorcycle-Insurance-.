@@ -21,7 +21,7 @@
 | 9 | 10 | M | 2 | 3 | 16 | 1 | 0.150685 | 0 | 0 |
 | 10 | 10 | M | 4 | 2 | 17 | 1 | 0.523288 | 0 | 0 |
 
-## Business Recommendation
+## Business Recommendation from me after finding insight 
 
 ### ข้อเสนอแนะเชิงธุรกิจของผมเอง (จากการดูเดต้า และ การถามจากคนใช้ อธิบายด้วยคำพูดตัวเอง)
 
