@@ -1,7 +1,5 @@
 # Motorcycle Insurance Insight finding and business decision making recommendation practice
 
-## Key Results
-
 ## Business Recommendation
 
 ### ข้อเสนอแนะเชิงธุรกิจของผมเอง
@@ -35,6 +33,9 @@
 2. **Stop using `bonus_class` as a standalone rating signal** — not significant in either model once age, zone and vehicle class are controlled for. Keep it as a loyalty tool, not a risk indicator.
 3. **Cap combined discounts/loadings** — the multiplicative tariff (no interaction terms) can stack factors into unrealistic extremes (>1,000x). Add a maximum combined multiplier before production.
 4. **Treat zone 7 and other thin segments with caution** — zone 7 has only 1 claim. Merge it with a similar zone or apply credibility weighting until more data comes in.
+
+
+## Key Results
 
 **ไทย:** ส่วนนี้สำคัญที่สุด เป็นผลสรุปของทั้งโปรเจกต์ — ตารางราคาเบี้ยประกัน (tariff) ที่ได้จากโมเดล frequency × severity
 
