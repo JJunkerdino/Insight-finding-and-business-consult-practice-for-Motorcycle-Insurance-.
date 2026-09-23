@@ -86,6 +86,26 @@ plt.tight_layout()
 plt.savefig(FIGURES_DIR / "frequency_by_segment.png", dpi=150)
 plt.close(fig)
 
+
+# --- 3b. Total claims by segment (raw counts, not exposure-adjusted) ---
+def total_claims_by(data, group_col):
+    g = data.groupby(group_col, observed=True).agg(total_claims=("claim_count", "sum"))
+    return g.sort_values("total_claims", ascending=False)
+
+
+fig, axes = plt.subplots(2, 3, figsize=(16, 8))
+for ax, col in zip(axes.flat, segment_cols):
+    claims_table = total_claims_by(df_exp, col)
+    claims_table["total_claims"].plot(kind="bar", ax=ax, color="mediumseagreen")
+    ax.set_title(f"Total claims by {col}")
+    ax.set_ylabel("total claims")
+    avg_claims = claims_table["total_claims"].mean()
+    ax.axhline(avg_claims, color="red", linestyle="--", linewidth=1, label="avg across groups")
+    ax.legend(fontsize=8)
+plt.tight_layout()
+plt.savefig(FIGURES_DIR / "total_claims_by_segment.png", dpi=150)
+plt.close(fig)
+
 # --- 4. Does the bonus-malus (no-claims discount) system work? ---
 # If the system works as intended, frequency should generally go down as
 # bonus_class goes up.
