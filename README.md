@@ -2,7 +2,7 @@
 
 ## Business Recommendation
 
-### ข้อเสนอแนะเชิงธุรกิจของผมเอง
+### ข้อเสนอแนะเชิงธุรกิจของผมเอง (จากการดูเดต้า และ การถามจากคนใช้ อธิบายด้วยคำพูดตัวเอง)
 
 - หลังจากที่เรารู้ insight แล้วว่า กลุ่มคนอายุต่ำกว่า 25 ปี อยู่ในโซน 2 ขับรถ class 6 ค่อนข้างจะมีอุบัติเหตุบ่อยและเคลมบ่อย ผมเลยอยากลองทำ business recommendation ของตัวเองจากความเข้าใจที่มี
 - **แนวทางที่ 1:** เพิ่มค่าเบี้ยประกันที่ลูกค้ากลุ่มนี้ต้องจ่าย เพื่อที่จะได้อยู่ในโปรแกรมความคุ้มครอง (การเคลม) ของกรมธรรม์นี้ต่อไปได้
@@ -11,7 +11,7 @@
   - จริง ๆ แล้วคนส่วนใหญ่ไม่ได้ซื้อประกันเพราะคาดหวังว่าจะเกิดอุบัติเหตุอยู่แล้ว ดังนั้นถ้าจ่ายเบี้ยประกันเท่าเดิม แต่ได้ค่าเคลมน้อยลง ก็ไม่ได้ติดปัญหาอะไรมากสำหรับพวกเขา — นี่คือหนึ่ง insight ที่ได้มา
   - แต่ลูกค้าก็ยังมีแนวโน้มที่จะไปดูบริษัทประกันเจ้าอื่นว่ามีเงื่อนไขที่ดีกว่าของเราหรือเปล่า ซึ่งอาจเสี่ยงต่อการเสียลูกค้าให้คู่แข่งได้
 
-### My own business recommendation (English)
+### My own business recommendation from using data and talking to real user who use motorcycle insurance, explains in my own words (English)
 
 - After finding the insight that riders under 25 years old, in zone 2, riding class 6 vehicles tend to have accidents and claim fairly often, I wanted to try writing my own business recommendation based on what I understand.
 - **Option 1:** Increase the premium these customers have to pay, so they can stay in this policy's coverage/claim program.
