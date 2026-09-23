@@ -1,6 +1,40 @@
-# Motorcycle Insurance Pricing Project
+# Motorcycle Insurance Insight finding and business decision making recommendation practice
 
 ## Key Results
+
+## Business Recommendation
+
+### ข้อเสนอแนะเชิงธุรกิจของผมเอง
+
+- หลังจากที่เรารู้ insight แล้วว่า กลุ่มคนอายุต่ำกว่า 25 ปี อยู่ในโซน 2 ขับรถ class 6 ค่อนข้างจะมีอุบัติเหตุบ่อยและเคลมบ่อย ผมเลยอยากลองทำ business recommendation ของตัวเองจากความเข้าใจที่มี
+- **แนวทางที่ 1:** เพิ่มค่าเบี้ยประกันที่ลูกค้ากลุ่มนี้ต้องจ่าย เพื่อที่จะได้อยู่ในโปรแกรมความคุ้มครอง (การเคลม) ของกรมธรรม์นี้ต่อไปได้
+- **แนวทางที่ 2:** เก็บค่าเบี้ยประกันเท่าเดิม แต่ลดวงเงินความคุ้มครองลง (เคลมได้น้อยลง ถูกลง) ถ้าลูกค้ากลุ่มนี้ไม่ยอมรับเงื่อนไขนี้ ก็ให้เปลี่ยนไปใช้โปรแกรมประกันแบบอื่นแทน
+- ผมได้ลองเอาไอเดียแนวทางที่ 2 ไปถามความเห็นกับคนที่ใช้ประกันมอเตอร์ไซค์จริง ๆ ได้ insight กลับมาว่า:
+  - จริง ๆ แล้วคนส่วนใหญ่ไม่ได้ซื้อประกันเพราะคาดหวังว่าจะเกิดอุบัติเหตุอยู่แล้ว ดังนั้นถ้าจ่ายเบี้ยประกันเท่าเดิม แต่ได้ค่าเคลมน้อยลง ก็ไม่ได้ติดปัญหาอะไรมากสำหรับพวกเขา — นี่คือหนึ่ง insight ที่ได้มา
+  - แต่ลูกค้าก็ยังมีแนวโน้มที่จะไปดูบริษัทประกันเจ้าอื่นว่ามีเงื่อนไขที่ดีกว่าของเราหรือเปล่า ซึ่งอาจเสี่ยงต่อการเสียลูกค้าให้คู่แข่งได้
+
+### My own business recommendation (English)
+
+- After finding the insight that riders under 25 years old, in zone 2, riding class 6 vehicles tend to have accidents and claim fairly often, I wanted to try writing my own business recommendation based on what I understand.
+- **Option 1:** Increase the premium these customers have to pay, so they can stay in this policy's coverage/claim program.
+- **Option 2:** Keep the premium the same, but reduce the coverage amount (lower claim payout). If this group of customers doesn't accept these terms, let them switch to a different insurance program instead.
+- I actually took Option 2 and asked for feedback from a real motorcycle insurance user, and got this insight back:
+  - Most people don't actually buy insurance expecting to get into an accident, so if the premium stays the same but the claim payout is reduced, it's not really a big problem for them — that's one insight.
+  - But customers would still likely check other insurance companies to see if their terms are better than ours, which could risk losing the customer to a competitor.
+
+### ข้อเสนอแนะจากโมเดล / Recommendations from the model
+
+**ไทย:**
+1. **ขึ้นราคากลุ่มเสี่ยงสูงที่ยืนยันแล้ว** — อายุต่ำกว่า 25, โซน 2, class 6 มีข้อมูลจริงพอ (75 policy-years, 8 เคลม) ต้นทุนสูงถึง ~17.7 เท่าของค่าเฉลี่ย ราคาตอนนี้น่าจะต่ำเกินไป ควรขึ้นราคาเฉพาะกลุ่มนี้ โดยอิงจากประวัติเคลมจริง ไม่ใช่แค่ค่าที่โมเดลปรับให้เรียบแล้ว
+2. **อย่าใช้ `bonus_class` ตั้งราคาอย่างเดียว** — ไม่มีนัยสำคัญในทั้งสองโมเดลเมื่อคุมอายุ/โซน/คลาสรถแล้ว เก็บไว้เป็นเครื่องมือรักษาลูกค้า (loyalty) ได้ แต่ไม่ใช่ตัวบอกความเสี่ยง
+3. **ตั้งเพดานส่วนลด/ส่วนเพิ่มรวม (cap)** — ตารางแบบคูณหลายตัวต่อกัน (ไม่มี interaction) ทำให้ราคาต่างกันเกินจริง (>1,000 เท่า) เมื่อปัจจัยดีหรือแย่มาซ้อนกัน ต้องมี cap ก่อนใช้งานจริง
+4. **ระวังโซน 7 และกลุ่มที่ข้อมูลน้อย** — โซน 7 มีเคลมแค่ 1 ครั้ง ยังเชื่อค่า severity ไม่ได้ ควรรวมกับโซนใกล้เคียง หรือใช้ credibility weighting จนกว่าจะมีข้อมูลมากขึ้น
+
+**English:**
+1. **Reprice the confirmed high-risk segment** — under 25, zone 2, class 6 is well-observed (75 policy-years, 8 claims) and costs ~17.7x the average. It's very likely under-priced; recommend a targeted rate increase based on real claims history, not just the model's smoothed estimate.
+2. **Stop using `bonus_class` as a standalone rating signal** — not significant in either model once age, zone and vehicle class are controlled for. Keep it as a loyalty tool, not a risk indicator.
+3. **Cap combined discounts/loadings** — the multiplicative tariff (no interaction terms) can stack factors into unrealistic extremes (>1,000x). Add a maximum combined multiplier before production.
+4. **Treat zone 7 and other thin segments with caution** — zone 7 has only 1 claim. Merge it with a similar zone or apply credibility weighting until more data comes in.
 
 **ไทย:** ส่วนนี้สำคัญที่สุด เป็นผลสรุปของทั้งโปรเจกต์ — ตารางราคาเบี้ยประกัน (tariff) ที่ได้จากโมเดล frequency × severity
 
@@ -123,39 +157,7 @@ vehicle_age_table = build_modifier_table("vehicle_age_group", veh_labels, base_v
 | 10-14 | 0.0949 |
 | 15+ | 0.0524 |
 
-## Business Recommendation
 
-### ข้อเสนอแนะเชิงธุรกิจของผมเอง
-
-- หลังจากที่เรารู้ insight แล้วว่า กลุ่มคนอายุต่ำกว่า 25 ปี อยู่ในโซน 2 ขับรถ class 6 ค่อนข้างจะมีอุบัติเหตุบ่อยและเคลมบ่อย ผมเลยอยากลองทำ business recommendation ของตัวเองจากความเข้าใจที่มี
-- **แนวทางที่ 1:** เพิ่มค่าเบี้ยประกันที่ลูกค้ากลุ่มนี้ต้องจ่าย เพื่อที่จะได้อยู่ในโปรแกรมความคุ้มครอง (การเคลม) ของกรมธรรม์นี้ต่อไปได้
-- **แนวทางที่ 2:** เก็บค่าเบี้ยประกันเท่าเดิม แต่ลดวงเงินความคุ้มครองลง (เคลมได้น้อยลง ถูกลง) ถ้าลูกค้ากลุ่มนี้ไม่ยอมรับเงื่อนไขนี้ ก็ให้เปลี่ยนไปใช้โปรแกรมประกันแบบอื่นแทน
-- ผมได้ลองเอาไอเดียแนวทางที่ 2 ไปถามความเห็นกับคนที่ใช้ประกันมอเตอร์ไซค์จริง ๆ ได้ insight กลับมาว่า:
-  - จริง ๆ แล้วคนส่วนใหญ่ไม่ได้ซื้อประกันเพราะคาดหวังว่าจะเกิดอุบัติเหตุอยู่แล้ว ดังนั้นถ้าจ่ายเบี้ยประกันเท่าเดิม แต่ได้ค่าเคลมน้อยลง ก็ไม่ได้ติดปัญหาอะไรมากสำหรับพวกเขา — นี่คือหนึ่ง insight ที่ได้มา
-  - แต่ลูกค้าก็ยังมีแนวโน้มที่จะไปดูบริษัทประกันเจ้าอื่นว่ามีเงื่อนไขที่ดีกว่าของเราหรือเปล่า ซึ่งอาจเสี่ยงต่อการเสียลูกค้าให้คู่แข่งได้
-
-### My own business recommendation (English)
-
-- After finding the insight that riders under 25 years old, in zone 2, riding class 6 vehicles tend to have accidents and claim fairly often, I wanted to try writing my own business recommendation based on what I understand.
-- **Option 1:** Increase the premium these customers have to pay, so they can stay in this policy's coverage/claim program.
-- **Option 2:** Keep the premium the same, but reduce the coverage amount (lower claim payout). If this group of customers doesn't accept these terms, let them switch to a different insurance program instead.
-- I actually took Option 2 and asked for feedback from a real motorcycle insurance user, and got this insight back:
-  - Most people don't actually buy insurance expecting to get into an accident, so if the premium stays the same but the claim payout is reduced, it's not really a big problem for them — that's one insight.
-  - But customers would still likely check other insurance companies to see if their terms are better than ours, which could risk losing the customer to a competitor.
-
-### ข้อเสนอแนะจากโมเดล / Recommendations from the model
-
-**ไทย:**
-1. **ขึ้นราคากลุ่มเสี่ยงสูงที่ยืนยันแล้ว** — อายุต่ำกว่า 25, โซน 2, class 6 มีข้อมูลจริงพอ (75 policy-years, 8 เคลม) ต้นทุนสูงถึง ~17.7 เท่าของค่าเฉลี่ย ราคาตอนนี้น่าจะต่ำเกินไป ควรขึ้นราคาเฉพาะกลุ่มนี้ โดยอิงจากประวัติเคลมจริง ไม่ใช่แค่ค่าที่โมเดลปรับให้เรียบแล้ว
-2. **อย่าใช้ `bonus_class` ตั้งราคาอย่างเดียว** — ไม่มีนัยสำคัญในทั้งสองโมเดลเมื่อคุมอายุ/โซน/คลาสรถแล้ว เก็บไว้เป็นเครื่องมือรักษาลูกค้า (loyalty) ได้ แต่ไม่ใช่ตัวบอกความเสี่ยง
-3. **ตั้งเพดานส่วนลด/ส่วนเพิ่มรวม (cap)** — ตารางแบบคูณหลายตัวต่อกัน (ไม่มี interaction) ทำให้ราคาต่างกันเกินจริง (>1,000 เท่า) เมื่อปัจจัยดีหรือแย่มาซ้อนกัน ต้องมี cap ก่อนใช้งานจริง
-4. **ระวังโซน 7 และกลุ่มที่ข้อมูลน้อย** — โซน 7 มีเคลมแค่ 1 ครั้ง ยังเชื่อค่า severity ไม่ได้ ควรรวมกับโซนใกล้เคียง หรือใช้ credibility weighting จนกว่าจะมีข้อมูลมากขึ้น
-
-**English:**
-1. **Reprice the confirmed high-risk segment** — under 25, zone 2, class 6 is well-observed (75 policy-years, 8 claims) and costs ~17.7x the average. It's very likely under-priced; recommend a targeted rate increase based on real claims history, not just the model's smoothed estimate.
-2. **Stop using `bonus_class` as a standalone rating signal** — not significant in either model once age, zone and vehicle class are controlled for. Keep it as a loyalty tool, not a risk indicator.
-3. **Cap combined discounts/loadings** — the multiplicative tariff (no interaction terms) can stack factors into unrealistic extremes (>1,000x). Add a maximum combined multiplier before production.
-4. **Treat zone 7 and other thin segments with caution** — zone 7 has only 1 claim. Merge it with a similar zone or apply credibility weighting until more data comes in.
 
 ## ทำไมถึงทำโปรเจกต์นี้
 
