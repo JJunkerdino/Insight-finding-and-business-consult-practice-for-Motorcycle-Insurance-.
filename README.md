@@ -183,6 +183,31 @@ vehicle_age_table = build_modifier_table("vehicle_age_group", veh_labels, base_v
 
 ## 01 — Data Cleaning
 
+### 0. เกี่ยวกับชุดข้อมูลนี้ / About the dataset
+
+**ไทย:** ข้อมูลนี้มาจากบริษัทประกันสัญชาติสวีเดนชื่อ Wasa เป็นประกันมอเตอร์ไซค์แบบ partial casco (คุ้มครองไม่เต็มรูปแบบ) เก็บข้อมูลกรมธรรม์และการเคลมจริงช่วงปี 1994-1998 รวม **64,548 กรมธรรม์** (เหตุผลที่ข้อมูลเก่าเพราะข้อมูลจริงที่ใหม่กว่านี้เป็นความลับทางธุรกิจ เปิดเผยไม่ได้) มาจากหนังสือ *Non-life insurance pricing with generalized linear models* (Ohlsson & Johansson, 2010)
+
+**English:** This data comes from the former Swedish insurer **Wasa**, covering **partial casco motorcycle insurance** policies and claims from **1994-1998** — **64,548 policies** in total (older data is used because more recent real business data is confidential). Source: *Non-life insurance pricing with generalized linear models* (Ohlsson & Johansson, 2010).
+
+**ตัวอย่างข้อมูลดิบ 10 แถว (ก่อนเปลี่ยนชื่อคอลัมน์) / Raw sample, 10 rows (before renaming):**
+
+| rownames | agarald | kon | zon | mcklass | fordald | bonuskl | duration | antskad | skadkost |
+|---|---|---|---|---|---|---|---|---|---|
+| 1 | 0 | M | 1 | 4 | 12 | 1 | 0.175342 | 0 | 0 |
+| 2 | 4 | M | 3 | 6 | 9 | 1 | 0.000000 | 0 | 0 |
+| 3 | 5 | K | 3 | 3 | 18 | 1 | 0.454795 | 0 | 0 |
+| 4 | 5 | K | 4 | 1 | 25 | 1 | 0.172603 | 0 | 0 |
+| 5 | 6 | K | 2 | 1 | 26 | 1 | 0.180822 | 0 | 0 |
+| 6 | 9 | K | 3 | 3 | 8 | 1 | 0.542466 | 0 | 0 |
+| 7 | 9 | K | 4 | 3 | 6 | 1 | 0.000000 | 0 | 0 |
+| 8 | 9 | M | 4 | 4 | 20 | 1 | 0.504110 | 0 | 0 |
+| 9 | 10 | M | 2 | 3 | 16 | 1 | 0.150685 | 0 | 0 |
+| 10 | 10 | M | 4 | 2 | 17 | 1 | 0.523288 | 0 | 0 |
+
+**ไทย:** จะเห็นว่าชื่อคอลัมน์ดิบเป็นตัวย่อภาษาสวีเดนอ่านไม่รู้เรื่อง (`agarald`, `kon`, `mcklass`, ...) ขั้นตอนถัดไปคือเปลี่ยนชื่อให้อ่านง่ายขึ้น
+
+**English:** Notice the raw column names are cryptic Swedish abbreviations (`agarald`, `kon`, `mcklass`, ...). The next step renames them to something readable.
+
 ### เปลี่ยนชื่อคอลัมน์จากภาษาสวีเดนเป็นภาษาอังกฤษ / Rename Swedish columns to English
 
 **ไทย:** ไฟล์ดิบใช้ชื่อคอลัมน์เป็นตัวย่อภาษาสวีเดน (`agarald`, `kon`, `skadkost`, ...) เลยเปลี่ยนเป็นภาษาอังกฤษให้ใครก็อ่านเข้าใจ ไม่ต้องเปิด data dictionary ดูคู่กัน และเปลี่ยนค่า `gender` จาก M/K เป็น Male/Female (K = Kvinna = ผู้หญิงในภาษาสวีเดน)
@@ -220,6 +245,11 @@ Output:
 | 3 | 5 | Female | 3 | 3 | 18 | 1 | 0.454795 | 0 | 0 |
 | 4 | 5 | Female | 4 | 1 | 25 | 1 | 0.172603 | 0 | 0 |
 | 5 | 6 | Female | 2 | 1 | 26 | 1 | 0.180822 | 0 | 0 |
+| 6 | 9 | Female | 3 | 3 | 8 | 1 | 0.542466 | 0 | 0 |
+| 7 | 9 | Female | 4 | 3 | 6 | 1 | 0.000000 | 0 | 0 |
+| 8 | 9 | Male | 4 | 4 | 20 | 1 | 0.504110 | 0 | 0 |
+| 9 | 10 | Male | 2 | 3 | 16 | 1 | 0.150685 | 0 | 0 |
+| 10 | 10 | Male | 4 | 2 | 17 | 1 | 0.523288 | 0 | 0 |
 
 ### แต่ละคอลัมน์คืออะไร / What each column means
 
