@@ -1,5 +1,5 @@
 # Motorcycle Insurance Pricing Project
-
+## Finding insight and practice making business decision
 ## ทำไมถึงทำโปรเจกต์นี้
 
 - จริง ๆ ที่เลือกทำโปรเจกต์นี้เพราะอยากซ้อมการทำ data analytics และ data science พวกทำโมเดล predict อะไรพวกนี้ โดยเฉพาะเกี่ยวกับพวกประกันภัย (insurance) บ้าง
